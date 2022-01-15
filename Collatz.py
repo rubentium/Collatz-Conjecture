@@ -1,4 +1,4 @@
-import random
+
 
 # NOTE the storage_dict class and the decorator dec_header
 # aren/t used in the actual functions anywhare and don't change
@@ -197,17 +197,6 @@ def pathfinder_test(pathbuilder_output_list, itr) -> bool:
         if f' {i} ' not in outstring:
             return False
         return True
-
-
-# for _ in range(10):
-#     num = random.choice([1, 2, 3, 4, 5])
-#     obj = _node(num)
-
-# for e in storage.storage:
-#     print(e, id(storage.storage[e]))
-
-v = pathbuilder(7, Collatz(3, 1))
-print(v)
-for lister in v:
-    print(lister)
-
+    
+    
+    
