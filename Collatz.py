@@ -55,9 +55,9 @@ class List:
         self.first = _node(num)
         self.loe = [num] # loe -- list of elements
 
-    def add_num(self, input: int) -> list:
+    def add_num(self, input: int) -> None:
         """
-        the method adds a link to the List
+        the method adds a number to the List
         """
         node = self.first
         while node.next is not None:
@@ -65,7 +65,7 @@ class List:
         node.next = _node(input)
         self.loe = self._contains()
 
-    def add_node(self, inp_node: _node):
+    def add_node(self, inp_node: _node) -> None:
         """
         Adds a node in the linked list
         """
@@ -77,7 +77,7 @@ class List:
 
     def isin(self, inp: int) -> bool:
         """
-        Checks if the element is in the list of
+        Checks if the element is in the list
         """ 
         node = self.first
         while node.next is not None:
@@ -89,7 +89,11 @@ class List:
             return True
         return False
 
-    def _contains(self) -> list[int]:
+    def _contains(self) -> list[int]: 
+        '''
+        returns a list of elements
+        contained in the linked list
+        '''
         ement_node = self.first
         output = []
         while ement_node.next is not None:
@@ -99,6 +103,11 @@ class List:
         return output
 
     def __str__(self) -> str:
+        '''
+        prints the  linked list 
+        where the values are separated
+        with "->"
+        '''
         str_out = ''
         node = self.first
         while node.next is not None:
@@ -130,13 +139,13 @@ class Collatz:
             return self.coeff * inp + self.const
         return int(inp / 2)
 
-def pathbuilder(itr: int, f: Collatz) -> list[list, dict]:
+def pathbuilder(itr: int, f: Collatz) -> list[List]:
     '''
     Builds the path from the first number
     up untill presumable second last (before 1)
     and if one of these numbers starts with a number
     that is already present in some other sequence (path)
-    it removes it from the list to avaid repetitions
+    it removes it from the list to avoid repetitions
     '''
 
     outlist = []
@@ -175,7 +184,12 @@ def pathbuilder(itr: int, f: Collatz) -> list[list, dict]:
 
     return outlist
 
-def pathfinder_test(pathbuilder_output_list, itr):
+def pathfinder_test(pathbuilder_output_list, itr) -> bool:
+    '''
+    Just tests that all the values up until
+    the itr parameter are preset in at
+    least one of the sequences (linked lists).
+    '''
     outstring = ''
     for llist in pathbuilder_output_list:
         outstring += ' ' + llist.__str__()  
@@ -193,7 +207,7 @@ def pathfinder_test(pathbuilder_output_list, itr):
 #     print(e, id(storage.storage[e]))
 
 v = pathbuilder(7, Collatz(3, 1))
-# print(v)
+print(v)
 for lister in v:
     print(lister)
 
